@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "Payment Gateway Detector",
+  "version": "1.0",
+  "description": "Detects payment gateways on websites with professional UI",
+  "permissions": ["activeTab", "storage"],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "css": ["content.css"]
+    }
+  ]
+}
