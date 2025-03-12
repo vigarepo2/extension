@@ -48,7 +48,7 @@ function initialize() {
     
     // Auto detect on page load
     if (isEnabled) {
-      detectPaymentGateways();
+      setTimeout(detectPaymentGateways, 1000); // Short delay to ensure page is fully loaded
     }
   });
   
@@ -116,7 +116,7 @@ function showOverlay(gateways) {
   
   // Create gateway items HTML
   const gatewaysHtml = gateways.map((gateway, index) => `
-    <div class="pgd-gateway-item" style="animation-delay: ${index * 50}ms">
+    <div class="pgd-gateway-item" style="animation-delay: ${index * 100}ms">
       <div class="pgd-gateway-name">${gateway}</div>
     </div>
   `).join('');
@@ -138,12 +138,12 @@ function showOverlay(gateways) {
   // Add close button event
   overlayElement.querySelector('.pgd-close').addEventListener('click', removeOverlay);
   
-  // Auto hide after 10 seconds
+  // Auto hide after 12 seconds
   setTimeout(() => {
     if (overlayElement) {
       removeOverlay();
     }
-  }, 10000);
+  }, 12000);
 }
 
 // Remove overlay
